@@ -1,4 +1,7 @@
 # VueShop
+
+第一次修改 , 测试成功 , 哦哦
+
 Vue + Django restframework 前后端分离在线电商平台 
 
 简书记录：[Vue+drf前后端分离之生鲜电商项目(一)](https://www.jianshu.com/p/9d93a4bef572) [（二）](https://www.jianshu.com/p/c16662480923)
