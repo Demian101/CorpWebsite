@@ -1,6 +1,7 @@
 # VueShop
 
 第一次修改 , 测试成功 , 哦哦
+danshi
 
 Vue + Django restframework 前后端分离在线电商平台 
 
