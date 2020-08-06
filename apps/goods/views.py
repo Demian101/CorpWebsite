@@ -14,8 +14,7 @@ from rest_framework import mixins, viewsets
 
 class CategoryViewSet(mixins.ListModelMixin, mixins.RetrieveModelMixin, viewsets.GenericViewSet):
     """
-    list:
-        商品分类列表数据
+    list: 商品分类列表数据
     """
 
     queryset = GoodsCategory.objects.filter(category_type=1)
@@ -27,6 +26,7 @@ class GoodsPagination(PageNumberPagination):
     """
     商品列表自定义分页
     """
+
     # 默认每页显示的个数
     page_size = 12
     # 可以动态改变每页显示的个数
@@ -42,7 +42,9 @@ class GoodsListViewSet(CacheResponseMixin, mixins.ListModelMixin, mixins.Retriev
     list:
         商品列表数据
     """
-    queryset = Goods.objects.all().order_by("id")
+    #queryset = Goods.objects.all().order_by("id")
+    queryset = Goods.objects.all()  # 2020 0805 修改
+
     pagination_class = GoodsPagination
     filter_backends = (DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter)
     filter_class = GoodsFilter

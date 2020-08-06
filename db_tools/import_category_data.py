@@ -10,6 +10,7 @@ import os
 pwd = os.path.dirname(os.path.realpath(__file__))
 # 获取项目的跟目录
 sys.path.append(pwd+"../")
+
 # 要想单独使用django的model，必须指定一个环境变量，在manage.py或wsgi.py中找
 # 参照manage.py里面就知道为什么这样设置了
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "OnlineShop.settings")

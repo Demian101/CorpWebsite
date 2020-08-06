@@ -5,15 +5,17 @@ from .models import IndexAd
 
 class GoodsAdmin(object):
     # 显示的列
-    list_display = ["name", "click_num", "sold_num", "fav_num", "goods_num", "market_price",
+    #list_display = ["name", "click_num", "sold_num", "fav_num", "goods_num", "market_price",
+     #               "shop_price", "goods_brief", "goods_desc", "is_new", "is_hot", "add_time"]
+    list_display = ["name", "sold_num",  "goods_num",
                     "shop_price", "goods_brief", "goods_desc", "is_new", "is_hot", "add_time"]
     # 可以搜索的字段
     search_fields = ['name', ]
-    # 列表页可以直接编辑的
-    list_editable = ["is_hot", ]
+    ### 列表页可以直接编辑的
+    ###list_editable = ["is_hot", ]
     # 过滤器
-    list_filter = ["name", "click_num", "sold_num", "fav_num", "goods_num", "market_price",
-                   "shop_price", "is_new", "is_hot", "add_time", "category__name"]
+    #list_filter = ["name", "click_num", "sold_num",  "goods_num",
+    #               "shop_price", "is_new", "is_hot", "add_time", "category__name"]
     # 富文本编辑器
     style_fields = {"goods_desc": "ueditor"}
 
@@ -54,11 +56,12 @@ class HotSearchAdmin(object):
 class IndexAdAdmin(object):
     list_display = ["category", "goods"]
 
-
+# models 类 和 xadmin  类 , 绑定
 xadmin.site.register(Goods, GoodsAdmin)
 xadmin.site.register(GoodsCategory, GoodsCategoryAdmin)
 xadmin.site.register(Banner, BannerGoodsAdmin)
 xadmin.site.register(GoodsCategoryBrand, GoodsBrandAdmin)
 
-xadmin.site.register(HotSearchWords, HotSearchAdmin)
-xadmin.site.register(IndexAd, IndexAdAdmin)
+### 注释掉的是 边栏一级目录 : 产品管理 的几个 band
+#xadmin.site.register(HotSearchWords, HotSearchAdmin)
+#xadmin.site.register(IndexAd, IndexAdAdmin)

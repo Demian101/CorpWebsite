@@ -29,7 +29,7 @@ SECRET_KEY = 'e3t&to_44rws22r1*p2b025$&$(*tan7bbxtjy9^9il-wns-f3'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*','192.168.43.178']
 
 
 # Application definition
@@ -44,8 +44,8 @@ INSTALLED_APPS = [
     'django_filters',
     'users',
     'goods',
+    'news',
     'DjangoUeditor',
-    'trade',
     'user_operation',
     'xadmin',
     'crispy_forms',
@@ -89,6 +89,13 @@ WSGI_APPLICATION = 'OnlineShop.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
+
+# CREATE DATABASE `vueshop` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci */;
+# GRANT all ON root.* TO 'vueshop'@'localhost';
+# FLUSH PRIVILEGES;
+# exit
+
+# 2020/08/05 先用 sqlite
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
@@ -101,7 +108,18 @@ DATABASES = {
         # 后续第三方登陆的时候 引擎要求是innodb
     }
 }
-
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': 'vueshop',
+#         'USER': 'root',
+#         'PASSWORD': '123456',
+#         'HOST': '127.0.0.1',
+#         'PORT': '3306',
+# #        "OPTIONS": {"init_command": "SET default_storage_engine=INNODB;"}
+#         # 后续第三方登陆的时候 引擎要求是innodb
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
@@ -170,8 +188,8 @@ REST_FRAMEWORK = {
             'rest_framework.throttling.UserRateThrottle'    # 登陆用户
         ),
     'DEFAULT_THROTTLE_RATES': {
-        'anon': '3/minute',         # 每分钟可以请求两次
-        'user': '5/minute'          # 每分钟可以请求五次
+        'anon': '100/minute',         # 每分钟可以请求两次
+        'user': '100/minute'          # 每分钟可以请求五次
     }
 }
 
@@ -188,5 +206,5 @@ APIKEY = "xxxxx327d4be01608xxxxxxxxxx"
 
 
 REST_FRAMEWORK_EXTENSIONS = {
-    'DEFAULT_CACHE_RESPONSE_TIMEOUT': 5   #5s过期，时间自己可以随便设定
+    'DEFAULT_CACHE_RESPONSE_TIMEOUT': 50000   #5s过期，时间自己可以随便设定
 }

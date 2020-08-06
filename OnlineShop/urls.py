@@ -23,10 +23,14 @@ from rest_framework.documentation import include_docs_urls
 from goods import views as gview
 from users import views as uview
 from user_operation import views as uoview
-from trade import views as tviews
+# from trade import views as tviews
+
+from news import views as nview
+
 import xadmin
 
 router = routers.DefaultRouter()
+router.register(r'news',nview.NewsViewSet, base_name='news')
 router.register(r'categorys', gview.CategoryViewSet, base_name="categorys")
 router.register(r'goods', gview.GoodsListViewSet, base_name='goods')
 router.register(r'code', uview.SmsCodeViewset, base_name='code')
@@ -37,10 +41,10 @@ router.register(r'userfavs', uoview.UserFavViewset, base_name="userfavs")
 router.register(r'messages', uoview.LeavingMessageViewset, base_name='messages')
 # 配置收货地址
 router.register(r'address', uoview.AddressViewset , base_name="address")
-# 配置购物车URL
-router.register(r'shopcarts', tviews.ShoppingCartViewset, base_name="shopcarts")
-# 订单url
-router.register(r'orders', tviews.OrderViewset, base_name="orders")
+# # 配置购物车URL
+# router.register(r'shopcarts', tviews.ShoppingCartViewset, base_name="shopcarts")
+# # 订单url
+# router.register(r'orders', tviews.OrderViewset, base_name="orders")
 
 router.register(r'banners', gview.BannerViewset, base_name="banners")
 # 首页系列商品展示url
@@ -48,7 +52,7 @@ router.register(r'indexgoods', gview.IndexCategoryViewset, base_name="indexgoods
 
 urlpatterns = [
     path('xadmin/', xadmin.site.urls),
-    path('docs/', include_docs_urls(title='慕学生鲜')),
+    path('docs/', include_docs_urls(title='CorpAdmin')),
     path('ueditor/', include('DjangoUeditor.urls')),
     path('media/<path:path>', serve, {'document_root':MEDIA_ROOT}),
     # 为了和前端相同 改成login了

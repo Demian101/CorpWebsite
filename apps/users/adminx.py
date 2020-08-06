@@ -11,8 +11,8 @@ class BaseSetting(object):
 
 class GlobalSettings(object):
     # 全局配置，后台管理标题和页脚
-    site_title = "生鲜平台管理"
-    site_footer = "www.imooc.com"
+    site_title = "后台管理"
+    site_footer = "京东数字科技-开放中台研发部-智能服务研发部"
     # 菜单收缩
     menu_style = "accordion"
 
@@ -24,3 +24,6 @@ class VerifyCodeAdmin(object):
 xadmin.site.register(VerifyCode, VerifyCodeAdmin)
 xadmin.site.register(views.BaseAdminView, BaseSetting)
 xadmin.site.register(views.CommAdminView, GlobalSettings)
+
+
+

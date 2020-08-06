@@ -7,7 +7,6 @@ from user_operation.models import UserFav, UserLeavingMessage, UserAddress
 from goods.serializers import GoodSerializer
 from rest_framework.validators import UniqueTogetherValidator
 
-
 class UserFavDetailSerializer(serializers.ModelSerializer):
     """
     用户收藏详情

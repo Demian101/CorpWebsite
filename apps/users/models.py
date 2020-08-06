@@ -10,7 +10,7 @@ class UserProfile(AbstractUser):
     """
     自定义用户表
     """
-    GENDER_CHOICES = (
+    GENDER_CHOICES = (  # 被解释为下拉菜单
         ("male", "男"),
         ("female", "女")
     )
@@ -23,7 +23,7 @@ class UserProfile(AbstractUser):
 
     class Meta:
         verbose_name = '用户'
-        verbose_name_plural = verbose_name
+        verbose_name_plural = verbose_name  # 指定，模型的复数形式是什么, 如果不指定 ,会默认加一个 s
 
     def __str__(self):
         return self.username
