@@ -1,7 +1,5 @@
 # VueShop
-Vue + Django restframework 前后端分离在线电商平台 
-
-简书记录：[Vue+drf前后端分离之生鲜电商项目(一)](https://www.jianshu.com/p/9d93a4bef572) [（二）](https://www.jianshu.com/p/c16662480923)
+An enterprise website project , with separation of frontend (Vue.js) and backend (Django)
 
 [博客](https://isk2y.github.io/)笔记：https://isk2y.github.io/2018/11/28/vue-drf-onlineshop/ 
 
